@@ -2,7 +2,7 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1>Posts</h1>
+<h1>All Posts</h1>
 
 <table>
   <thead>
@@ -23,7 +23,6 @@
         <td><%= post.description %></td>
         <td><%= post.slug %></td>
         <a class="btn btn-primary btn-xs"><td><%= link_to 'Show', post %></td></a>
-
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

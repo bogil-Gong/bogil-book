@@ -1,6 +1,11 @@
 <% provide(:page_title, 'New Post') %>
-<h1>New Post</h1>
 
-<%= render 'form', post: @post %>
-
-<%= link_to 'Back', posts_path %>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h1 class="panel-title" align="center">New Post</h1>
+  </div>
+  <div class="panel-body">
+    <%= render 'form', post: @post %>
+    <%= link_to 'Back', posts_path, class:"btn btn-primary btn-xs" %>
+  </div>
+</div>
