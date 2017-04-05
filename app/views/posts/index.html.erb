@@ -17,6 +17,12 @@
         <div class="post-body">
           <%= truncate(post.body, length: 50) %>
         </div>
+        <div class="post-details" align="right">
+          <small>
+            Created by: <%= post.user.email if post.user %> |
+            <%= time_ago_in_words(post.created_at) %> ago
+          </small>
+        </div>
         <div class="post-actions" align="center">
           <%= link_to 'Edit this post', edit_post_path(post), class:"btn btn-warning btn-xs"%>
           <%= link_to 'Dlete this post', post, method: :delete, data: {confirm: "Are you sure?"}, class:"btn btn-danger btn-xs" %>
