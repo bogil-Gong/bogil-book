@@ -1,17 +1,18 @@
 <% provide(:page_title, @post.title) %>
 
 <p id="notice"><%= notice %></p>
-
-
-<div class="panel panel-primary" align="center">
-  <div class="panel-heading">
-    <h1 class="panel-title"><%= @post.title %></h1>
-  </div>
-  <div class="panel-body">
-    <%= @post.body %>
-  </div>
-  <div align="center">
-    <%= link_to 'Edit', edit_post_path(@post) %> |
-    <%= link_to 'Back', posts_path, class:"btn btn-primary btn-xs" %>
-  </div>
+<div class="form-horizontal">
+  <fieldset>
+    <div class="well col-xs-8 col-xs-offset-2">
+      <legend align="center"><strong><%= @post.title %></strong></legend>
+      <div class="panel-body">
+        <%= simple_format(@post.body) %>
+        <div class="post-actions" align="center">
+          <%= link_to 'Edit this post', edit_post_path(@post), class:"btn btn-warning btn-xs"%>
+          <%= link_to 'Dlete this post',post_path(@post), method: :delete, data: {confirm: "Are you sure?"}, class:"btn btn-danger btn-xs" %>
+          <%= link_to 'View all post', posts_path, class:"btn btn-primary btn-xs" %>
+        </div>
+      </div>
+    </div>
+  </fieldset>
 </div>
