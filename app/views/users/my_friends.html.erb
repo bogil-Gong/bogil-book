@@ -1,2 +1,36 @@
-<h1>Users#my_friends</h1>
-<p>Find me in app/views/users/my_friends.html.erb</p>
+<% provide(:page_title, 'My friends') %>
+<%= render 'friends/lookup' %>
+<% if @friendships.size > 0  %>
+<table class="table table-striped table-hover">
+<thead>
+  <tr>
+    <th colspan="3" class="page-header">
+      <h2>My Friends</h2>
+    </th>
+  </tr>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Action</th>
+  </tr>
+</thead>
+<tbody>
+  <% @friendships.each do |friend| %>
+  <tr>
+    <td><%= friend.full_name %></td>
+    <td><%= friend.email %></td>
+    <td>
+      <!-- <%= link_to 'View Profile', user_path(friend), class: "btn btn-primary btn-xs" %> -->
+      <%= link_to 'Remove Friend', friendship_path(friend), method: :delete,
+                                                            data: {confirm: "Are you sure?"},
+                                                            class:"btn btn-danger btn-xs"%>
+    </td>
+  </tr>
+  <% end %>
+</tbody>
+</table>
+<% else %>
+<div class="row col-lg-12">
+  <p class="lead">You don't have any friends. Add friends!!</p>
+</div>
+<% end %>

@@ -19,7 +19,7 @@
         </div>
         <div class="post-details" align="right">
           <small>
-            Created by: <%= post.user.email if post.user %> |
+            Created by: <%= post.user.full_name if post.user %> |
             <%= time_ago_in_words(post.created_at) %> ago
           </small>
         </div>

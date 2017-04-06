@@ -1,0 +1,9 @@
+<h1>User Profile</h1>
+
+<% if @user.posts.size > 0 %>
+  <%= render 'posts/list' %>
+<% else %>
+  <p class="lead"> This user is not write any posts</p>
+<% end %>
+
+<%= link_to "Back", my_friends_path %>
